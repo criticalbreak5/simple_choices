@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>test</title>
+<script type="text/javascript" src="./jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="./jquery.simple_choices.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var choices = {
+		"":"not selected",
+		"00001":"choice1",
+		"00002":"choice2",
+		"00003":"choice3",
+		"00004":"choice4",
+		"00005":"choice5",
+		"00006":"choice6",
+		"00007":"choice7",
+		"00008":"choice8",
+		"00009":"choice9",
+		"00010":"choice10"
+	};
+	$("#area_id_1").simple_choices({
+		"control-type":"select", 
+		"control-id":"select_id_1", // <select /> : id="{control-id}", name="{control-id}"; <option /> : id="{control-id}-{choices.key}", value="{choices.key}"
+		"choices":choices, 
+		"value":["00001"] 
+	});
+	$("#area_id_2").simple_choices({
+		"control-type":"select", 
+		"control-id":"select_id_2", 
+		"choices":choices, 
+		"value":["00002"], 
+		"read-only":"true" 
+	});
+	delete choices[""];
+	$("#area_id_3").simple_choices({
+		"control-type":"checkbox", 
+		"control-id":"checkbox_id_1", // <input type="checkbox" /> : id="{control-id}-{choices.key}", name="{control-id}", value="{choices.key}"
+		"choices":choices, 
+		"value":["00001", "00002"], 
+		"option-html":"&nbsp;" 
+	});
+	$("#area_id_4").simple_choices({
+		"control-type":"checkbox", 
+		"control-id":"checkbox_id_2", 
+		"choices":choices, 
+		"value":["00003", "00004"], 
+		"read-only":"true", 
+		"option-html":"&nbsp;" 
+	});
+	$("#area_id_5").simple_choices({
+		"control-type":"radio", 
+		"control-id":"radio_id_1", // <input type="radio" /> : id="{control-id}-{choices.key}", name="{control-id}", value="{choices.key}"
+		"choices":choices, 
+		"value":["00001"], 
+		"option-html":"<br />" 
+	});
+	$("#area_id_6").simple_choices({
+		"control-type":"radio", 
+		"control-id":"radio_id_2", 
+		"choices":choices, 
+		"value":["00002"], 
+		"read-only":"true", 
+		"option-html":"<br />" 
+	});
+});
+</script>
+</head>
+<body>
+■SelectBox<br /><br />
+<div id="area_id_1"></div><br />
+<div id="area_id_2"></div><br /><br />
+■CheckBox<br /><br />
+<div id="area_id_3"></div><br />
+<div id="area_id_4"></div><br /><br />
+■RadioButton<br /><br />
+<div id="area_id_5"></div><br />
+<div id="area_id_6"></div><br /><br />
+</body>
+</html>
+
