@@ -1,12 +1,12 @@
 /*!
- * jQuery SimpleChoices Plugin v1.0.0
+ * jQuery SimpleChoices Plugin v1.0.1
  * https://github.com/criticalbreak5/simple_choices
  *
  * Copyright 2014 criticalbreak5's
  * Released under the MIT license
  * http://opensource.org/licenses/mit-license.php
  *
- * Date: 2014-07-15T00:00Z
+ * Date: 2014-07-16T00:00Z
  */
 (
 	function($) {
@@ -52,19 +52,13 @@
 					html.push("<option id='" + selectId + "-" + choice + "' value='" + choice + "'");
 					if (value[choice] && value[choice] == "true") {
 						html.push(" selected='selected'");
-					} else if (isReadOnly) {
+					}
+					if (isReadOnly) {
 						html.push(" disabled='disabled'");
 					}
 					html.push(">" + choices[choice] + "</option>");
 				}
 				$(target).html(html.join(""));
-				for (var choice in choices) {
-					if (isReadOnly) {
-						if (value[choice] && value[choice] == "true") {
-							$('#' + selectId + "-" + choice).css(css);
-						}
-					}
-				}
 			};
 			function generateCheckboxOrRadio(isCheckbox, target, checkboxOrRadioId, choices, value, isReadOnly) {
 				var css = {
@@ -83,7 +77,7 @@
 						html.push(" checked='checked'");
 					}
 					if (isReadOnly) {
-						html.push(" onclick='return false;'");
+						html.push(" disabled='disabled'");
 					}
 					html.push("></input>");
 					html.push("<label id='" + checkboxOrRadioId + "-" + choice + "-label' for='" + checkboxOrRadioId + "-" + choice + "'>" + choices[choice] + "</label>");
