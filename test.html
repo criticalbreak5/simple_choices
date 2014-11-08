@@ -25,7 +25,7 @@ $(document).ready(function() {
 	};
 	$("#area_id_1").simple_choices({
 		"control-type":"select", 
-		"control-id":"select_id_1", // <select /> : id="{control-id}", name="{control-id}"; <option /> : id="{control-id}-{choices.key}", value="{choices.key}"
+		"control-id":"select_id_1", 
 		"choices":choices, 
 		"value":["00001"] 
 	});
@@ -39,7 +39,7 @@ $(document).ready(function() {
 	delete choices[""];
 	$("#area_id_3").simple_choices({
 		"control-type":"checkbox", 
-		"control-id":"checkbox_id_1", // <input type="checkbox" /> : id="{control-id}-{choices.key}", name="{control-id}", value="{choices.key}"
+		"control-id":"checkbox_id_1", 
 		"choices":choices, 
 		"value":["00001", "00002"], 
 		"option-html":"&nbsp;" 
@@ -54,7 +54,7 @@ $(document).ready(function() {
 	});
 	$("#area_id_5").simple_choices({
 		"control-type":"radio", 
-		"control-id":"radio_id_1", // <input type="radio" /> : id="{control-id}-{choices.key}", name="{control-id}", value="{choices.key}"
+		"control-id":"radio_id_1", 
 		"choices":choices, 
 		"value":["00001"], 
 		"option-html":"<br />" 
